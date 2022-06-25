@@ -1,25 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import {ethers} from "ethers";
+import {useEffect, useState} from "react";
+import abi from "./HeroesToken.json"
+
+
+const contract_address = '0x48a2e8684610a2F595365d7eaCe6d88ed8bc1815'
+const provider = new ethers.providers.JsonRpcProvider('https://api.avax.network/ext/bc/C/rpc');
+const contract = new ethers.Contract(contract_address, abi, provider);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [txs, setTxs] = useState([]);
+    useEffect(() => {
+        console.log(contract)
+    })
+    return (
+        <div className="App">
+            <header className="App-header">
+
+            </header>
+        </div>
+    );
 }
 
 export default App;
