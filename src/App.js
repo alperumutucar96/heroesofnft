@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         fetchData(1)
-        console.log(contract)
+        // console.log(contract)
     })
     return (
         <div className="App">

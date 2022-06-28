@@ -35,7 +35,7 @@ export function Characters(props: any) {
             dataIndex: 'character',
             key: 'character',
             sorter: true,
-            render: (name) => `${name}`
+            render: (character) => `${character}`
         },
         {
             title: 'ID',
@@ -48,12 +48,12 @@ export function Characters(props: any) {
             dataIndex: 'description',
             key: 'description',
         },
-        // {
-        //     title: 'Attributes',
-        //     dataIndex: 'attributes',
-        //     key: 'attributes',
-        //     render: <List></List>
-        // },
+        {
+            title: 'Attributes',
+            dataIndex: 'attributes',
+            key: 'attributes',
+            render: (attributes) => attributes.map((attribute) =><p>{ attribute.value}</p>)
+        },
     ];
     useEffect(() => {
 
@@ -63,7 +63,7 @@ export function Characters(props: any) {
         <div>
             <Table columns={columns}
                    pagination={{pageSize: 5}}
-                   dataSource={props.data}/>
+                   dataSource={[props.data]}/>
         </div>
     )
 }
