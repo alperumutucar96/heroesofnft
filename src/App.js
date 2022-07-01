@@ -25,6 +25,7 @@ function App() {
                     console.log(datas)
                 })
         }
+
     }
 
     useEffect(() => {
@@ -33,7 +34,7 @@ function App() {
             fetchData()
         }
         // console.log(contract)
-    })
+    }, [])
     return (
         <div className="App">
             <header className="App-header">

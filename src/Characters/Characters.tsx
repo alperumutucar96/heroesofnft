@@ -55,15 +55,20 @@ export function Characters(props: any) {
         //     render: (attributes) => attributes.map((attribute) =><p>{ attribute.value}</p>)
         // },
     ];
-    useEffect(() => {
+    const [dataRes, setDataRes] = useState([])
 
+    useEffect(() => {
+        setTimeout(() => {
+            setDataRes(props.datas)
+        }, 2000);
     })
 
     return (
         <div>
             <Table columns={columns}
+                   bordered
                    pagination={false}
-                   dataSource={props.datas}/>
+                   dataSource={dataRes}/>
         </div>
     )
 }
