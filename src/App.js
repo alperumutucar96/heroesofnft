@@ -21,6 +21,7 @@ function App() {
                 })
                 .then(data => {
                     datas.push(data)
+                    setDatas(datas)
                     console.log(datas)
                 })
         }
@@ -36,7 +37,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <Characters data={datas}/>
+                <Characters datas={datas}/>
             </header>
         </div>
     );

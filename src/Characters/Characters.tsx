@@ -62,8 +62,8 @@ export function Characters(props: any) {
     return (
         <div>
             <Table columns={columns}
-                   pagination={{pageSize: 5}}
-                   dataSource={props.data}/>
+                   pagination={false}
+                   dataSource={props.datas}/>
         </div>
     )
 }
