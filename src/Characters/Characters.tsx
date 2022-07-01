@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {Table} from "antd";
 import {ColumnsType} from "antd/es/table";
+import './Characters.css';
 
 export type CharacterType = {
     image: string;
@@ -65,10 +66,12 @@ export function Characters(props: any) {
 
     return (
         <div>
-            <Table columns={columns}
-                   bordered
-                   pagination={false}
-                   dataSource={dataRes}/>
+            <Table
+                className="ant-table-cell"
+                columns={columns}
+                bordered
+                pagination={false}
+                dataSource={dataRes}/>
         </div>
     )
 }
