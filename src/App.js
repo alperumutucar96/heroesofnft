@@ -9,28 +9,34 @@ const provider = new ethers.providers.JsonRpcProvider('https://api.avax-test.net
 const contract = new ethers.Contract(contract_address, abi, provider);
 
 function App() {
-    const [data, setData] = useState([])
+    const [datas, setDatas] = useState([])
     const [txs, setTxs] = useState([]);
+    const [initialize, setInitialize] = useState(false);
 
-    const fetchData = (index) => {
-        fetch("https://character.heroesofnft.com/token/" + index)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                setData(data)
-                console.log(data)
-            })
+    async function fetchData() {
+        for (let i = 1; i < 500; i++) {
+            await fetch("https://character.heroesofnft.com/token/" + i)
+                .then(response => {
+                    return response.json()
+                })
+                .then(data => {
+                    datas.push(data)
+                    console.log(datas)
+                })
+        }
     }
 
     useEffect(() => {
-        fetchData(1)
+        if (!initialize) {
+            setInitialize(true)
+            fetchData()
+        }
         // console.log(contract)
     })
     return (
         <div className="App">
             <header className="App-header">
-                <Characters data={data}/>
+                <Characters data={datas}/>
             </header>
         </div>
     );
